@@ -1,0 +1,7 @@
+{
+    "client_id" : "",
+    "client_secret" : "",
+    "code" : "",
+    "redirect_uri" : "",
+    "token_autorefresh": 1
+}
