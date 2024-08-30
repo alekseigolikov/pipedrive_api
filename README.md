@@ -17,12 +17,12 @@
     * PipedriveDeals - Class for querying and importing deals information
     * PipedriveCLI - Class for providing methods for CLI utility
 * [CLI utility](./pipedrive.py) - CLI utility for managing tokens/accessing API methods from commandline, here are some examples:
-    * pipedrive.py fetch_token
-    * pipedrive.py refresh_token
-    * pipedrive.py whoami
-    * pipedrive.py deals
-    * pipedrive.py set_auth client_id some_clinet_id_value
-    * pipedrive.py load_file path_to_csv_extracted_after_transformation
+    * `pipedrive.py fetch_token`
+    * `pipedrive.py refresh_token`
+    * `pipedrive.py whoami`
+    * `pipedrive.py deals`
+    * `pipedrive.py set_auth client_id some_clinet_id_value`
+    * `pipedrive.py load_file path_to_csv_extracted_after_transformation`
 * [DBT models for data transformation](./dbt_models/pipedrive_orders.sql)
 
 
@@ -31,11 +31,13 @@
 * Authorize an app for some account and "code" token for further requesting authorization tokens for app as described in [Pipeline Oauth documentation](https://pipedrive.readme.io/docs/marketplace-oauth-authorization#step-1-requesting-authorization)
 * store client_id, client_secret, code and app callback uri:
     * directly to config.json
-    * or using pipedrive.py CLI
+    * or using pipedrive.py CLI<br />
     `pipedrive.py set_auth client-secret client_secret_value`
-* Run pipedrive.py requesting new set of authorization and refresh tokens:
-`pipedrive.py set_auth access-token token_value`
-* Test that authorization tokens are correctly stored and pipedrive API working fine requesting info of account that authorized access for app
+* Run pipedrive.py requesting new set of authorization and refresh tokens:<br />
+`pipedrive.py fetch_token`
+* Any time API will detect that token was expired, it will trigger token refresh procedure, alternativelly you can do it manually:<br />
+`pipedrive.py refresh_token`
+* Test that authorization tokens are correctly stored and pipedrive API working fine requesting info of account that authorized access for app <br />
 `pipedrive.py whoami`
 * Start Apache Airflow and trigger DAG execution
 
